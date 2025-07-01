@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Booking Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="/submit-booking" method="post">
+    <h2>Travel Booking Form</h2>
+
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="fullname" required>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="from">Departure City:</label>
+    <input type="text" id="from" name="from_city" required>
+
+    <label for="to">Destination City:</label>
+    <input type="text" id="to" name="to_city" required>
+
+    <label for="departure-date">Departure Date:</label>
+    <input type="date" id="departure-date" name="departure_date" required>
+
+    <label for="return-date">Return Date:</label>
+    <input type="date" id="return-date" name="return_date">
+
+    <label for="travel-class">Travel Class:</label>
+    <select id="travel-class" name="travel_class">
+      <option value="economy">Economy</option>
+      <option value="business">Business</option>
+      <option value="first">First Class</option>
+    </select>
+
+    <label for="preferences">Special Requests / Notes:</label>
+    <textarea id="preferences" name="preferences" rows="4"></textarea>
+
+    <button type="submit">Book Travel</button>
+  </form>
+
+</body>
+</html>
