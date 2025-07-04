@@ -13,15 +13,42 @@
             background-color: brown;
         }
         .cone{
-            background-color: crimson;
+            background-color:  chartreuse;
+        }
+        .ctwo{
+            background-color:brown;
         }
 
+        [data-x=a]{
+            background-color: lightcoral;
+        }
     </style>
-</head>
-<body>
-    <h1>day 4</h1>
-    <h2 style="background-color: chartreuse;">CSS Specificity</h2>
-    <p class="cone ctwo cthree">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo deleniti consequatur aut quidem molestias reprehenderit, ad quae maiores esse laborum rerum nobis asperiores ratione amet ut sapiente accusantium recusandae at.</p>
+        </head>
+<!-- | Selector Type                    Specificity Value 
+
+| Inline style                     **1000**          
+| ID selector                       **100**          
+| Class / attribute / pseudo-class  **10**            
+| Element / pseudo-element         **1**             
+| Universal selector (`*`)          **0**              -->
+
+
+
+
+
+
+
+
+
     
-</body>
-</html>
+        <body>
+            <h1>day 4</h1>
+            <h2 style="background-color: chartreuse;">CSS Specificity</h2>
+            <p class="cone ctwo cthree">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo deleniti consequatur aut quidem molestias reprehenderit, ad quae maiores esse laborum rerum nobis asperiores ratione amet ut sapiente accusantium recusandae at.</p>
+
+            
+            <p data-x="a">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem dolorum repudiandae sit officiis ipsum qui perspiciatis et aspernatur neque accusantium! Debitis numquam necessitatibus voluptatum rerum dignissimos animi rem ex quam vero a esse distinctio voluptatem ut, ratione ipsam non totam dolorum nobis aliquam, magnam soluta? Autem, maxime? Odio blanditiis minus distinctio consectetur velit, quam incidunt asperiores iste nam, recusandae quia eligendi architecto maiores assumenda vitae. Corrupti quis excepturi itaque expedita possimus eius quae adipisci dolorum voluptatem recusandae, nam tempore distinctio! Nisi, tenetur illo. Impedit excepturi, accusantium incidunt exercitationem, voluptates similique alias ea labore corrupti dolore numquam tempore repellendus provident dolorem!</p>
+
+            
+        </body>
+        </html>
