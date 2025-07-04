@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Units Example</title>
+  <style>
+    :root {
+      font-size: 16px; /* base for rem */
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .px-box {
+      width: 200px;
+      height: 100px;
+      background-color: #f9c74f;
+      margin-bottom: 10px;
+    }
+
+    .percent-box {
+      width: 50%;
+      height: 100px;
+      background-color: #90be6d;
+      margin-bottom: 10px;
+    }
+
+    .em-box {
+      font-size: 1.5em; /* 1.5 × parent font-size */
+      padding: 1em;
+      background-color: #f9844a;
+      margin-bottom: 10px;
+    }
+
+    .rem-box {
+      font-size: 1.25rem; /* 1.25 × root font-size */
+      padding: 1rem;
+      background-color: #577590;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .viewport-box {
+      width: 50vw;
+      height: 20vh;
+      background-color: #43aa8b;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="px-box">200px wide box</div>
+  <div class="percent-box">50% width of body</div>
+  <div class="em-box">Text with 1.5em font-size</div>
+  <div class="rem-box">Text with 1.25rem font-size</div>
+  <div class="viewport-box">50vw × 20vh box</div>
+
+</body>
+</html>
