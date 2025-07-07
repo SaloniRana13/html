@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Code Card</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .code-card {
+      background-color: #1e1e2f;
+      color: #dcdcdc;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .code-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .code-card-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .code-block {
+      background-color: #2d2d3c;
+      border-radius: 8px;
+      padding: 15px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+
+    .language {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="code-card">
+  <div class="code-card-header">
+    <span class="code-card-title">Css</span>
+    <span class="language">.js</span>
+  </div>
+  <div class="code-block">
+<code>
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet("World"));
+</code>
+  </div>
+</div>
+
+</body>
+</html>
