@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multi-Color Website</title>
+  <style>
+    :root {
+      --primary-color: #4CAF50;
+      --secondary-color: #FF9800;
+      --text-color: #fff;
+      --background-color: #f0f0f0;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--primary-color);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: var(--secondary-color);
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Multi-Color Website</h1>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section>
+    <h2>Welcome!</h2>
+    <p>This is a colorful website using CSS variables for theming.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Your Website
+  </footer>
+
+</body>
+</html>
