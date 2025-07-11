@@ -11,3 +11,19 @@ let j = 67;
  const k = 35;
 //  k = k+1
  console.log(k)
+
+
+ let p="sumo"
+ console.log(p+typeof(p))
+
+
+ let l ={
+    name:"sumo"
+    
+ }
+
+
+ let g=null
+ console.log(typeof(g))
+ 
+
