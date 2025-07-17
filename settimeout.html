@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Cancel setTimeout Example</h3>
+<button onclick="startTimer()">Start</button>
+<button onclick="cancelTimer()">Cancel</button>
+
+<p id="status"></p>
+
+<script>
+let timeoutId;
+
+function startTimer() {
+  timeoutId = setTimeout(function() {
+    document.getElementById("status").innerText = "Time's up!";
+  }, 5000);
+  document.getElementById("status").innerText = "Timer started...";
+}
+
+function cancelTimer() {
+  clearTimeout(timeoutId);
+  document.getElementById("status").innerText = "Timer canceled.";
+}
+</script>
+
+</body>
+</html>
