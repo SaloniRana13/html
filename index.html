@@ -1,27 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Event Bubbling Example</title>
-  <style>
-    #grandparent, #parent, #child {
-      padding: 30px;
-      border: 2px solid #333;
-      margin: 10px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Promise Example</title>
 </head>
 <body>
+  <h1>Promise Example</h1>
+  <button onclick="runPromise()">Run Promise</button>
+  <p id="result"></p>
 
-<div id="grandparent">
-  Grandparent
-  <div id="parent">
-    Parent
-    <div id="child">
-      Child
-    </div>
-  </div>
-</div>
-<script src="eventbubling.js"></script>
-
+  <script src="promise.js"></script>
 </body>
 </html>
