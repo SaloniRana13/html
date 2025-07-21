@@ -1,108 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Responsive Header</title>
-  <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: lch(75.82% 89.31 126.54 / 0.946);
-  padding: 1rem;
-  color: white;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.nav ul {
-  display: flex;
-  list-style: none;
-}
-
-.nav ul li {
-  margin-left: 1.5rem;
-}
-
-.nav ul li a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.nav ul li a:hover {
-  color: #00bcd4;
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .nav {
-    display: none;
-    width: 100%;
-  }
-
-  .nav.open {
-    display: block;
-    background-color: #333;
-  }
-
-  .nav ul {
-    flex-direction: column;
-    padding: 1rem;
-  }
-
-  .nav ul li {
-    margin: 0.5rem 0;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-}
-
-
-
-
-
-  </style>
+  <meta charset="UTF-8">
+  <title>Nested Object Example</title>
 </head>
 <body>
-  <header class="header">
-    <div class="logo">MySite</div>
-    <nav class="nav" id="nav">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
-  </header>
+  <h1>Nested Object Example</h1>
+  <button onclick="showPersonInfo()">Show Person Info</button>
+  <pre id="output"></pre>
 
-  <script src="header.js"></script>
+  <!-- Link to JavaScript file -->
+  <script src="nested.js"></script>
 </body>
 </html>
