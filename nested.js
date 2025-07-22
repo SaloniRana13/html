@@ -1,25 +1,27 @@
+// script.js
+
 // Define a nested object
-const person = {
+const user = {
   name: "Alice",
-  age: 30,
+  age: 28,
   address: {
     street: "123 Main St",
-    city: "New York",
-    zip: {
-      code: 10001,
-      plus4: "1234"
-    }
-  }
+    city: "Metropolis",
+    zip: "12345"
+  },
+  hobbies: ["reading", "cycling", "gaming"]
 };
 
-// Function to display person info
-function showPersonInfo() {
-  const output = document.getElementById("output");
-  const info = `
-Name: ${person.name}
-Age: ${person.age}
-City: ${person.address.city}
-ZIP Code: ${person.address.zip.code}-${person.address.zip.plus4}
+// Use the object in your JS code
+function displayUserInfo() {
+  const output = `
+    Name: ${user.name}<br>
+    Age: ${user.age}<br>
+    City: ${user.address.city}<br>
+    Hobby: ${user.hobbies[0]}
   `;
-  output.textContent = info;
+  document.getElementById("info").innerHTML = output;
 }
+
+// Call function when page loads
+window.onload = displayUserInfo;
