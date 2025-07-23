@@ -1,29 +1,33 @@
-var a = 1;
-var b = 7;
-console.log(a+b)
 
 
-let i= 9;
-let j = 67;
- console.log(i+j)
+// Append a value to the calculator display
+function appendToDisplay(value) {
+    const display = document.getElementById('display');
+    display.value += value;
 
+    // Change the background color of the display to match button styles
+    display.style.backgroundColor = "#6c757d"; // Button style background
+    display.style.color = "#f8f9fa"; // Light text color
+}
 
- const k = 35;
-//  k = k+1
- console.log(k)
+// Clear the calculator display
+function clearDisplay() {
+    const display = document.getElementById('display');
+    display.value = '';
 
+    // Reset input field to default style
+    display.style.backgroundColor = "#495057"; // Default input background
+    display.style.color = "#ffffff"; // Default text color
+}
 
- let p="sumo"
- console.log(p+typeof(p))
-
-
- let l ={
-    name:"sumo"
-    
- }
-
-
- let g=null
- console.log(typeof(g))
- 
-
+// Calculate the result of the expression
+function calculateResult() {
+    const display = document.getElementById('display');
+    try {
+        // Replace "×" with "*" for multiplication and evaluate the expression
+        const result = eval(display.value.replace(/×/g, '*'));
+        display.value = result;
+    } catch (e) {
+        display.value = 'Error'; // Display error if invalid expression
+    }
+}
