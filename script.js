@@ -1,6 +1,13 @@
-// Using a feature that might not be available in older browsers
-const fruits = ['apple', 'banana', 'mango'];
-const hasBanana = fruits.includes('banana');
+console.log("Start");
 
-document.getElementById('output').textContent = 
-  hasBanana ? 'Banana is included!' : 'Banana is not included.';
+// Macrotask
+setTimeout(() => {
+  console.log("Macrotask: setTimeout");
+}, 0);
+
+// Microtask
+Promise.resolve().then(() => {
+  console.log("Microtask: Promise.then");
+});
+
+console.log("End");
