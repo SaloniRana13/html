@@ -1,13 +1,16 @@
-console.log("Start");
 
-// Macrotask
-setTimeout(() => {
-  console.log("Macrotask: setTimeout");
-}, 0);
+const apiUrl = 'https://jsonplaceholder.typicode.com/posts/1';
 
-// Microtask
-Promise.resolve().then(() => {
-  console.log("Microtask: Promise.then");
-});
+async function fetchData() {
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+  
+    document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+  } catch (error) {
+    document.getElementById('output').textContent = 'Error loading data.';
+    console.error('Fetch error:', error);
+  }
+}
 
-console.log("End");
+fetchData();
