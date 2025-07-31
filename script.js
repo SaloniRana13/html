@@ -1,6 +1,5 @@
-const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+function sum(...numbers) {
+  return numbers.reduce((acc, curr) => acc + curr, 0);
+}
 
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-       });
+console.log(sum(1, 2, 3, 4)); // 10
