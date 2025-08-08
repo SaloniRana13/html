@@ -1,17 +1,47 @@
-function deepClone(obj, hash = new WeakMap()) {
-  if (Object(obj) !== obj) return obj; // primitives
-  if (obj instanceof Date) return new Date(obj);
-  if (obj instanceof RegExp) return new RegExp(obj);
-  if (hash.has(obj)) return hash.get(obj); // cyclic ref
+const addNoteBtn = document.getElementById("add-note-btn");
+const notesContainer = document.getElementById("notes-container");
 
-  const result = Array.isArray(obj) ? [] : {};
-  hash.set(obj, result);
+// Load notes from localStorage
+window.onload = () => {
+  const notes = JSON.parse(localStorage.getItem("stickyNotes")) || [];
+  notes.forEach(text => createNote(text));
+};
 
-  for (const key of Reflect.ownKeys(obj)) {
-    result[key] = deepClone(obj[key], hash);
-  }
-
-  return result;
+// Save all notes to localStorage
+function saveNotes() {
+  const notes = [];
+  document.querySelectorAll(".note textarea").forEach(note => {
+    notes.push(note.value);
+  });
+  localStorage.setItem("stickyNotes", JSON.stringify(notes));
 }
 
-module.exports = deepClone;
+// Create a new note
+function createNote(text = "") {
+  const note = document.createElement("div");
+  note.classList.add("note");
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+
+  textarea.addEventListener("input", saveNotes);
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "×";
+  deleteBtn.classList.add("delete-btn");
+
+  deleteBtn.addEventListener("click", () => {
+    note.remove();
+    saveNotes();
+  });
+
+  note.appendChild(deleteBtn);
+  note.appendChild(textarea);
+  notesContainer.appendChild(note);
+}
+
+// Add new note on button click
+addNoteBtn.addEventListener("click", () => {
+  createNote();
+  saveNotes();
+});
