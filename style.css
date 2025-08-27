@@ -1,59 +1,56 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f0f0f0;
-  margin: 0;
+  background: #f7f7f7;
   padding: 20px;
+  color: #333;
 }
 
-.app {
-  max-width: 800px;
-  margin: 0 auto;
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-#add-note-btn {
-  padding: 10px 20px;
+form input, form button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
   font-size: 16px;
-  margin-bottom: 20px;
+}
+
+button {
+  background: #28a745;
+  color: white;
+  border: none;
   cursor: pointer;
 }
 
-#notes-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+button:hover {
+  background: #218838;
 }
 
-.note {
-  background: #fff8b3;
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #eee;
+  margin: 10px 0;
   padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  width: 200px;
-  min-height: 150px;
-  position: relative;
+  border-left: 5px solid #28a745;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
 
-.note textarea {
-  border: none;
-  background: transparent;
-  resize: none;
-  flex: 1;
-  font-size: 14px;
-  padding: 5px;
-}
-
-.note .delete-btn {
-  position: absolute;
-  top: 5px;
-  right: 8px;
+.delete-btn {
   background: red;
   color: white;
   border: none;
-  border-radius: 50%;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
-  font-size: 14px;
+  padding: 5px;
 }
