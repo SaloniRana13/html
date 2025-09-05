@@ -1,0 +1,300 @@
+<html>
+    <head>
+        <title>Display Grid</title>
+        <style>
+            /* 
+                display: grid
+                    This property transforms the container into a grid layout, allowing its children to become grid items.
+            */
+            .grid-container {
+                display: grid;
+                grid-template-columns: 1fr 2fr 100px;
+                grid-template-rows: 100px 100px 100px;
+                gap: 10px;
+                background-color: lightgray;
+            }
+            .grid-container .grid-item {
+                background-color: steelblue;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* 
+                display: inline-grid
+                This property is similar to display: grid, but the grid container behaves like an inline element.
+            */
+            .inline-grid-container {
+                display: inline-grid;
+                grid-template-columns: repeat(3, 100px);
+                gap: 5px;
+                background-color: lavender;
+            }
+            .inline-grid-item {
+                background-color: darkslateblue;
+                color: white;
+                text-align: center;
+                line-height: 100px;
+            }
+
+            /* 
+            grid-template-areas
+                Defines named grid areas for easier placement.
+
+            */
+            .template-areas-container div {
+                border : solid 5px darkorange;
+            }
+            .template-areas-container {
+                display: grid;
+                grid-template-columns: 200px 1fr;
+                grid-template-rows: 100px minmax(500px, auto) 50px;
+                gap: 10px;
+                grid-template-areas: 
+                    "header header"
+                    "sidebar main"
+                    "footer footer";
+            }
+            .header {
+                grid-area: header;/*Define areas within the grid and place items into those areas by name.*/
+            }
+            .sidebar {
+                grid-area: sidebar;
+            }
+            .main {
+                grid-area: main;
+            }
+            .footer {
+                grid-area: footer;
+            }
+
+            /* 
+            Implicit Grid Dimensions
+                Define behavior for rows/columns not explicitly defined in the grid.
+
+                Properties:
+
+                grid-auto-rows: Sets height of rows created implicitly.
+                grid-auto-columns: Sets width of columns created implicitly.
+            */
+            .grid-container-implicit {
+                display: grid;
+                grid-template-columns: 100px 1fr; /* Two explicit columns */
+                grid-template-rows: 50px;
+                grid-auto-rows: 150px; /* Rows for extra items */
+                gap: 10px;
+            }
+            .grid-item {
+                background-color: lightgray;
+                border: 1px solid darkgray;
+                text-align: center;
+                padding: 20px;
+            }
+
+            /* 
+            Auto-Placement Behavior
+                Control how items are placed automatically in the grid.
+
+                Property:
+
+                grid-auto-flow: Defines the direction (row/column) for auto-placement.
+                Values:
+
+                row (default): Items placed in rows.
+                column: Items placed in columns.
+                dense: Fill gaps in the grid.
+            */
+            .grid-container-auto-placement {
+                display: grid;
+                grid-template-columns: repeat(3, 100px);
+                /* grid-auto-rows: 100px; */
+                grid-auto-flow: dense;
+                row-gap: 10px;
+                column-gap: 20px;
+            }
+
+            .grid-container-auto-placement .grid-item {
+                background-color: lightpink;
+                border: 1px solid darkred;
+                text-align: center;
+                padding: 20px;
+            }
+            .grid-container-auto-placement .grid-item.large {
+                grid-column: span 3;
+            }
+
+            /* 
+            grid-column-start and grid-column-end
+                grid-column-start: Specifies where a grid item starts along the columns.
+                grid-column-end: Specifies where a grid item ends along the columns.
+            grid-row-start and grid-row-end
+                grid-row-start: Specifies where a grid item starts along the rows.
+                grid-row-end: Specifies where a grid item ends along the rows.
+
+            */
+            .grid-container-column-placement {
+                display: grid;
+                grid-template-columns: repeat(4, 100px);
+                grid-template-rows: 100px 100px 100px;
+                gap: 10px;
+                border: 2px solid black;
+            }
+            .grid-container-column-placement .grid-item {
+                background-color: lightblue;
+                border: 1px solid navy;
+                text-align: center;
+                padding: 20px;
+            }
+            .grid-container-column-placement .item-1 {
+                grid-column-start: 1; /* Starts at column 2 */
+                grid-column-end: 3;   /* Ends at column 4 */
+                grid-row-start: 2;
+                grid-row-end:3;
+            }
+            /* 
+            grid-column(shorthand property)
+                Combines grid-column-start and grid-column-end.
+                grid-column: <start> / <end>;
+            grid-row
+                Combines grid-row-start and grid-row-end.
+                grid-row: <start> / <end>;
+            */
+            .grid-container-column-placement :nth-child(5) {
+                grid-column: 3 / 4;
+                grid-row: 2  / 4;
+            }
+
+            /* 
+            justify-items(this is container property)
+                Aligns all grid items horizontally within their respective grid cells.
+                Applies to all items in the grid container.
+                justify-items: start | end | center | stretch;
+            align-items
+                Aligns all items vertically within their respective grid cells.
+                Applies to all items in the grid container.
+                align-items: start | end | center | stretch;
+            */
+            .grid-container-justify-items {
+                display: grid;
+                grid-template-columns: repeat(3, 100px);
+                grid-template-rows: repeat(3, 100px);
+                gap: 10px;
+                justify-items: center; /* start/end/center/stretch */
+                align-items: center;
+                background-color: darkgray;
+                height: 500px;;
+            }
+            .grid-container-justify-items .grid-item {
+                background-color: lightblue;
+                border: 1px solid navy;
+                text-align: center;
+                padding: 10px;
+            }
+            /* 
+            justify-self(this is item's property not container)
+                Aligns a specific item horizontally within its cell.
+                Overrides justify-items for individual grid items.
+                justify-self: start | end | center | stretch;
+            align-self
+                Aligns a specific item vertically within its cell.
+                Overrides align-items for individual grid items.
+                align-self: start | end | center | stretch;
+                
+            */
+            .grid-container-justify-items :nth-child(5) {
+                justify-self: start;
+                align-self: start;
+            }
+            .grid-container-justify-items :nth-child(2) {
+                justify-self: end;
+                align-self: end;
+            }
+
+            /* 
+            Aligning the Grid as a Whole
+                These properties align the entire grid within its container.
+
+                justify-content
+                Aligns the entire grid horizontally within its container.
+                justify-content: start | end | center | stretch | space-around | space-between | space-evenly;
+            align-content
+                Aligns the entire grid vertically within its container. 
+                align-content: start | end | center | stretch | space-around | space-between | space-evenly;
+            */
+            .grid-container-justify-items {
+                justify-content: start; /* Center the grid horizontally */
+                align-content: end;  /* Center the grid vertically */
+            }
+
+        </style>
+    </head>
+    <body>
+        <h2>Display: Grid</h2>
+        <div class="grid-container">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+            <div class="grid-item">7</div>
+            <div class="grid-item">8</div>
+            <div class="grid-item">9</div>
+        </div>
+
+        <h2>Display: Inline-Grid</h2>
+        <p>The following grid appears inline:</p>
+        <div class="inline-grid-container">
+            <div class="inline-grid-item">A</div>
+            <div class="inline-grid-item">B</div>
+            <div class="inline-grid-item">C</div>
+        </div>
+
+        <h2>Grid Template Areas</h2>
+        <div class="template-areas-container">
+            <div class="header">Header</div>
+            <div class="sidebar">Sidebar</div>
+            <div class="main">Main Content</div>
+            <div class="footer">Footer</div>
+        </div>
+
+        <h1>Implicit Grid Dimensions</h1>
+        <div class="grid-container-implicit">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+        </div>
+
+        <h1>Grid Auto Placement</h1>
+        <div class="grid-container-auto-placement">
+            <div class="grid-item">1</div>
+            <div class="grid-item large">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+        </div>
+
+        <h1>Explicit Column Placement</h1>
+        <div class="grid-container-column-placement">
+            <div class="grid-item">1</div>
+            <div class="grid-item item-1">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+        </div>
+
+        <h1>Justify Items Example</h1>
+        <div class="grid-container-justify-items">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+        </div>
+    </body>
+</html>
