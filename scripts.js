@@ -1,33 +1,31 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const sections = document.querySelectorAll('.section'); // Select all sections
-    const navLinks = document.querySelectorAll('.nav-list a'); // Select all navigation links
+// Append a value to the calculator display
+function appendToDisplay(value) {
+    const display = document.getElementById('display');
+    display.value += value;
 
-    // Function to check which section is in the viewport
-    function setActiveLink() {
-        let currentSection = '';
+    // Change the background color of the display to match button styles
+    display.style.backgroundColor = "#6c757d"; // Button style background
+    display.style.color = "#f8f9fa"; // Light text color
+}
 
-        // Loop through each section to check if it's in the viewport
-        sections.forEach((section) => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= 0 && rect.bottom >= 0) {
-                currentSection = section.getAttribute('id'); // Get the id of the current section
-            }
-        });
+// Clear the calculator display
+function clearDisplay() {
+    const display = document.getElementById('display');
+    display.value = '';
 
-        // Loop through the nav links to add/remove the 'active' class
-        navLinks.forEach((link) => {
-            const href = link.getAttribute('href').substring(1); // Get the section id from the link href
-            if (href === currentSection) {
-                link.classList.add('active'); // Add active class
-            } else {
-                link.classList.remove('active'); // Remove active class
-            }
-        });
+    // Reset input field to default style
+    display.style.backgroundColor = "#495057"; // Default input background
+    display.style.color = "#ffffff"; // Default text color
+}
+
+// Calculate the result of the expression
+function calculateResult() {
+    const display = document.getElementById('display');
+    try {
+        // Replace "×" with "*" for multiplication and evaluate the expression
+        const result = eval(display.value.replace(/×/g, '*'));
+        display.value = result;
+    } catch (e) {
+        display.value = 'Error'; // Display error if invalid expression
     }
-
-    // Run the function on scroll
-    window.addEventListener('scroll', setActiveLink);
-
-    // Initial check to ensure the correct link is active when the page loads
-    setActiveLink();
-});
+}
