@@ -1,0 +1,46 @@
+<button onclick="startAudio()">Start</button>
+<div id="sliders"></div>
+
+<script>
+const audioFiles = [
+  'https://www.soundjay.com/buttons/sounds/button-3.mp3',
+  'https://www.soundjay.com/buttons/sounds/button-16.mp3',
+  'https://www.soundjay.com/button/beep-07.mp3',
+  'https://www.soundjay.com/button/button-20.mp3',
+  'https://www.soundjay.com/button/button-09.mp3',
+  'https://www.soundjay.com/button/beep-10.mp3',
+  'https://www.soundjay.com/button/button-2.mp3',
+  'https://www.soundjay.com/button/beep-08b.mp3',
+  'https://www.soundjay.com/button/switch-10.mp3',
+  'https://www.soundjay.com/button/button-1.mp3'
+];
+
+let audioElements = [];
+
+function startAudio() {
+  if (audioElements.length === 0) {
+    audioFiles.forEach((src, index) => {
+      const audio = new Audio(src);
+      audio.loop = true;
+      audio.volume = 0.5; // default volume
+      audio.play();
+      audioElements.push(audio);
+      
+      // Create slider
+      const slider = document.createElement('input');
+      slider.type = 'range';
+      slider.min = 0;
+      slider.max = 1;
+      slider.step = 0.01;
+      slider.value = 0.5;
+      slider.oninput = (e) => {
+        audio.volume = e.target.value;
+      };
+      document.getElementById('sliders').appendChild(slider);
+    });
+  } else {
+    // If already loaded, just resume playing
+    audioElements.forEach(audio => audio.play());
+  }
+}
+</script>
