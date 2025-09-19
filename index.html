@@ -1,12 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Tab Component</title>
+  <style>
+    .tabs {
+      border: 1px solid #ccc;
+      width: 80%;
+      height: 40vh;
+      margin: 20px auto;
+      
+    }
+    .tab-headers {
+      display: flex;
+      border-bottom: 1px solid #ccc;
+          }
+    .tab-headers div {
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .tab-headers .active {
+      background-color: #f0f0f0;
+      border-bottom: 2px solid teal;
+    }
+    .tab-content {
+      padding: 20px;
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <h1>promise</h1>
-    <script src="promise.js"></script>
+
+<div id="myTabs" class="tabs"></div>
+
+<script>
+  function TabComponent(containerId) {
+    this.container = document.getElementById(containerId);
+    this.tabs = [];
+    this.activeIndex = 0;
+  }
+
+  TabComponent.prototype.addTab = function(title, content) {
+    this.tabs.push({ title, content });
+  };
+
+  TabComponent.prototype.render = function() {
+    this.container.innerHTML = '';
+
+    const headerDiv = document.createElement('div');
+    headerDiv.className = 'tab-headers';
+
+    const contentDiv = document.createElement('div');
+
+    this.tabs.forEach((tab, index) => {
+      const tabHeader = document.createElement('div');
+      tabHeader.textContent = tab.title;
+      if (index === this.activeIndex) tabHeader.classList.add('active');
+      tabHeader.addEventListener('click', () => {
+        this.activeIndex = index;
+        this.render();
+      });
+      headerDiv.appendChild(tabHeader);
+
+      const tabContent = document.createElement('div');
+      tabContent.className = 'tab-content';
+      if (index === this.activeIndex) tabContent.classList.add('active');
+      tabContent.innerHTML = tab.content;
+      contentDiv.appendChild(tabContent);
+    });
+
+    this.container.appendChild(headerDiv);
+    this.container.appendChild(contentDiv);
+  };
+  const tabs = new TabComponent('myTabs');
+  tabs.addTab('Home', '<p>Nice to see u here</p>');
+  tabs.addTab('Profile', '<p>hello nice to meet u.</p>');
+  tabs.addTab('Contact', '<p>contact me here.</p>');
+  tabs.render()
+</script>
+
+
 </body>
 </html>
+
