@@ -1,44 +1,30 @@
-var a = 1;
-var b = 7;
-console.log(a+b)
+var EndDate=new Date("1 Jan, 2026 24:00:00").getTime();
+var startDate=new Date('1 Jan, 2025 23:59:59:00').getTime();
+function updateTimer(){
+   var now=new Date().getTime();
+   var distanceCovered=now-startDate;
+   var distancePending=EndDate-now;
+   //calculate days min hours
+   //1 day=24*60*60*1000ms
+   var days=Math.floor(distancePending/(24*60*60*1000));
+   var hrs=Math.floor((distancePending%(24*60*60*1000))/(60*60*1000));
+   var min=Math.floor((distancePending%(60*60*1000))/(60*1000));
+   var sec=Math.floor((distancePending%(60*1000))/(1000));
+   var miliSec=Math.floor((distancePending%(1000)));
+   document.getElementById('days').innerHTML=days;
+   document.getElementById('hours').innerHTML=hrs;
+   document.getElementById('minutes').innerHTML=min;
+   document.getElementById('seconds').innerHTML=sec;
+   document.getElementById('mili-seconds').innerHTML=miliSec;
 
-
-let i= 9;
-let j = 67;
- console.log(i+j)
-
-
- const k = 35;
-//  k = k+1
- console.log(k)
-
-
- let p="sumo"
- console.log(p+typeof(p))
-
-
- let l ={
-    name:"sumo"
-    
- }
-
-
- let g=null
- console.log(typeof(g))
-
-
-
-
- let age = 0;
-  if(age>18){
-    console.log("you can drive")
-  }
-
-else if(age===0){
-    console.log("are you kidding")
+   //calculate width precen for progress now
+   var totalDistance=EndDate-startDate;
+   const precentagedistance=(distanceCovered/totalDistance)*100;
+   document.getElementById('progress-bar').style.width=precentagedistance+'%';
+   if(distancePending<0){
+     clearInterval();
+     document.getElementById('countdown').innerHTML="EXPIRED";
+     document.getElementById('progress-bar').style.width='100%';
+   }
 }
-  else{
-    console.log("you can not drive")
-  }
-
- 
+setInterval(updateTimer,1000);
