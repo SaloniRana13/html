@@ -1,0 +1,64 @@
+Box Modal and box-sizing:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Box Model Example</title>
+  <style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    /* 
+        The CSS Box Model is a fundamental concept in web design and layout. It describes how every HTML element is represented as a rectangular box, consisting of four distinct parts (from the inside out):
+
+        Content:
+        The innermost part where the text, images, or other content is displayed.
+
+        Padding:
+        The space between the content and the border. Padding creates inner spacing inside the box.
+
+        Border:
+        The edge around the padding. Borders can have styles, widths, and colors.
+
+        Margin:
+        The outermost layer, providing space between the element and neighboring elements. 
+    */
+    .box {
+      width: 200px; /* Width of content */
+      height: 100px; /* Height of content */
+      padding: 10px; /* Inner spacing */
+      border: 5px solid blue; /* Border width, style, color */
+      margin: 15px; /* Outer spacing */
+      background-color: lightgrey; /* Background for visibility */
+    }
+
+    /* 
+        The box-sizing property controls how the total width and height of an element are calculated. It determines whether padding and borders are included in the width/height or are added outside.
+
+        By default, browsers use the content-box value for the box-sizing property. This means:
+        The width and height you set apply only to the content area.
+        Padding and borders are added outside the specified dimensions, making the actual size of the element larger.
+
+        box-sizing: border-box
+        When you use box-sizing: border-box:
+        The width and height include content, padding, and borders.
+        Padding and borders no longer increase the element's size.
+    */
+    .box-sizing-content-box{
+        box-sizing: content-box;
+    }
+
+    .box-sizing-border-box{
+        box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="box ">This is a box This is a box This is a boxThis is a box This is a box This is a boxThis is a box</div>
+  <div class="box ">This is a box This is a box This is a boxThis is a box This is a box This is a boxThis is a box</div>
+</body>
+</html>
