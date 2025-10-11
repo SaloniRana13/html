@@ -1,0 +1,17 @@
+div{
+    height: 200px;
+    width: 200px;
+    background-color:rgba(255, 0, 0, 0.156);
+    transition: 2s;
+    /* alpha channel shows background  */
+}
+#scnd{
+    height: 200px;
+    width: 200px;
+    background-color:rgba(255, 0, 0, 0.156);
+    opacity:0.5;
+    /* element ki opacity ki kitna visible hoga */
+}
+div:hover{
+    background-color: aquamarine;
+}
