@@ -1,0 +1,21 @@
+div{
+    height:100px ;
+    width: 300px;
+    background-color: rgb(139, 210, 213);
+    /* border-width: 2px;
+    border-style: solid;
+    border-color: aquamarine; */
+    border: 2px solid rgb(12, 49, 50);
+    border-left:2px dashed black ;
+    border-top-right-radius:15px ;
+    margin-bottom: 2px;
+    text-decoration-color: rgb(16, 44, 45);
+}
+button{
+    border-radius: 30px;
+    border-style: double;
+    border-color: rgb(11, 42, 45);
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: rgb(122, 237, 199);
+}
