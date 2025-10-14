@@ -1,13 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>app</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body>
+    <div class="header">
+        <!-- <img src="https://up.yimg.com/ib/th?id=OIP.3AMgj7LY0xSRf0o_Av9DawHaHa&pid=Api&rs=1&c=1&qlt=95&w=121&h=121" alt="" width="100px" height="60px" > -->
+        <h1>Expense Tracker</h1>
+    </div>
+    
+    <div class="maindiv">
+        <div class="right-container">
+            <div>
+                <h3>Set Total Amount</h3>
+                <div class="form-section">
+                    <input type="number" id="total-input" placeholder="Enter total amount" />
+                    <button id="set-total">Set Total Amount</button>
+                </div>
+            </div>
+            <div class="upper" id="total-amount">Total Amount: ₹0</div>
+            <div class="lower" id="remaining-amount">Left Amount: ₹0</div>
+            <div>
+                <canvas id="myChart" style="width:100%;max-width:600px; margin-top: 20px;"></canvas>
+            </div>
+        </div>
+
+        <div class="container">
+            <h3>Add New Expense</h3>
+            <div class="form-section">
+                <input type="text" id="expense-input" placeholder="Enter expense description" />
+                <input type="number" id="amount-input" placeholder="Amount" />
+                <br>
+                <button id="add-expense" >Add Expense</button>
+            </div>
+            <div class="listExpence">
+                <ul id="expense-list"></ul>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
 </html>
