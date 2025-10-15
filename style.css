@@ -1,179 +1,742 @@
-* {
+:root{
+    --primary-border: 0px solid black;
+    --transparent-blackColor: rgba(0, 0, 0, 0.5);
+}
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:"Open sans" ;
 }
-.header{
+header{
+    width: 100%;
+    height: auto;
+    z-index: 10;
+    border: var(--primary-border);
     display: flex;
-    justify-content:center;
-    gap: 2px;
-    background: linear-gradient(115deg, #030313, #043539);
+    position: absolute;
+    top: 0;
 }
-.header img{
-    padding: 8px;
-    border-radius: 10px;
+header>div{
+    width: 50%;
+    height: 100%;
+    padding-left: 1vw;
 }
-.maindiv {
-    font-family: 'Arial', sans-serif;
+header>div:hover{
+    cursor: pointer;
+}
+header>div>img{
+    width: 25%;
+    padding: 1vw;
+    background-color: white;
+    border-bottom-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+}
+nav{
+    width: 50%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 0.8rem;
+    font-weight: 500;
     display: flex;
-    justify-content: left;
     align-items: center;
-    height: 100vh;
-   
-    background: rgb(255,255,255);
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(247,247,247,1) 4%, rgba(245,245,245,1) 5%, rgba(63,60,60,1) 100%);
-   
 }
-h1,h3{
-    text-align: center;
-    color:#fff;
-    background: linear-gradient(115deg, #030313, #043539);
-    font-size: 3em;
+nav>ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
 }
-h3{
-    font-size: 2em;
+nav>ul>li{
+    position: relative;
 }
-
-.container, .right-container {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 40%;
-    min-height:90%;
-    padding: 20px;
-    text-align: center;
- 
-    margin: auto;
-    margin-left: 0px;
-    /* #FF6347', '#DBE0DC', '#626262', '#FFD700', '#0D0C22', "#B3D8A8", "#A59D84" */
-    background: linear-gradient(115deg, #030313, #043539);
-    
+nav>ul>li:hover{
+    cursor: pointer;
 }
-
-.right-container {
+.subList{
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.15), 0 -1px 0px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    display: none;
+    margin-top: 3vh;
+    width: max-content;
+    list-style: none;
+}
+.subList>li{
+    background-color: white;
+    color: #512B1A;
+    padding: 1.5vh;
+    border-radius: 3px;
+}
+.subList>li:hover{
+    background-color: #f1efef;
+}
+.hamburger {
+    display: none;
+    width: 50px;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+.hamburger div {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    border-radius: 5px;
+}
+.list_Room{
+    border: 1px solid white;
+    padding: 1.5vh 2vh;
+}
+.mobileNav{
+    display: none;
+}
+.hero{
+    width: 100%;
+    height: 85vh;
+    border: var(--primary-border);
+    background-image: url(https://www.homestay.com/assets/homepage/hero/hero-d964776e555246a8c442f3cbca48c7412b066dee0fdf7cd76e162d9f6d40700f.jpg);
+    background-size: cover;
+    background-position: 50% 10%;
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    margin: auto;
-}
-
-.upper, .lower {
-    color: #f0f4f8;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    height: 40%;
-    padding: 20px;
-    text-align: center;
-    background-color: #714c06;
-    background: linear-gradient(115deg, #030313, #043539);
-    margin: auto;
-}
-
-.form-section {
-    margin-bottom: 20px;
-}
-
-input {
-    padding: 10px;
-    margin: 5px;
-    width: 80%;
-    border: 2px solid #714c06;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-button {
-    background-color: #714c06;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #191f2e;
-}
-
-ul {
-    list-style-type: none;
-    margin-top: 20px;
-}
-
-li {
-    background-color: #f0f4f8;
-    color: #fff;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-li:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-}
-
-.delete-btn, .edit-btn {
-    background-color: #191f2e;
+    flex-direction: column;
+    font-size: 2rem;
     color: white;
+}
+.hero h1{
+    width: 75%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.hero form{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    padding: 4vh;
+}
+.hero form>input,.hero form>select, .hero form>button{
+    width: 22vh;
+    height: 6vh;
+    border-radius: 3px;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+.hero form>button{
+    padding-left: 0vh;
+}
+.hero form>select:nth-child(1){
+    width: 40vh; 
+}
+.listFilterSort{
+    position: absolute;
+    top: 5vh;
+    display: none;
+    list-style: none;
+    background-color: white;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15), 0 -5px 5px rgba(0, 0, 0, 0.15);
+}
+.listFilterSort>li{
+    padding: 1vh 3vh;
+}
+.hero form>button{
+    background-color: #CA005D;
+    color: white;
+    font-size: 1.1rem;
+}
+.hero form>button:hover{
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
-
-.edit-btn {
-    background-color: #5b3a17;
-   
+.hero form>.bigButton:hover{
+    background-color: #574F4C;
 }
-
-.delete-btn:hover {
-    background-color: #0a2d36;
+.stickySection{
+    width: 100%;
+    height: 7vh;
+    position: sticky;
+    top: 0;
+    border: var(--primary-border);
+    background-color: #6D635F;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    z-index: 10;
 }
-
-.edit-btn:hover {
-    background-color: #af5d05;
+.stickySection>a{
+    width: 30vh;
+    height: 100%;
+    border-left: 1px solid #524A47;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
 }
-
-.listExpence {
-    padding: 2px 15px;
-    margin: auto;
+.stickySection>a:hover{
+    cursor: pointer;
+    background-color: #524A47;
+}
+.stickySection>a:nth-child(5):hover{
+    cursor: default;
+    background-color: #6D635F;
+}
+.stickySection>a:nth-child(5)>p{
+    padding: 1vh 2vh;
+    font-weight: 400;
+    background-color: #CA005D;    
+}
+.stickySection>a:nth-child(5)>p:hover{
+    cursor: pointer;
+}
+main>div:nth-child(1){
+    width: 100%;
+    padding: 5vh;
+    background-image: linear-gradient(rgb(241, 239, 239), rgb(244, 243, 243), rgb(248, 247, 247), rgb(251, 251, 251), rgb(255, 255, 255));
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1rem;
+}
+main>div:nth-child(1)>h1{
+    color: #512B3B;
+    font-size: 2.4rem;
+    font-weight: 350;
+    margin-bottom: 4vh;
+}
+.specialDiv{
+    display: none;
+    position: absolute;
+    top: 7vh;
+    font-size: 1rem;
+    padding: 1vh;
+    color: #512B1A;
+    border: 1px solid gray;
+    background-color: white;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    right: 55vh;
+}
+main>div:nth-child(1)>p{
+    width: 70%;
+    padding-bottom: 6vh;
+    font-size: 1.1rem;
+    line-height: 3vh;
+}
+main>div:nth-child(1)>div{
     width: 85%;
-    border-radius: 10px;
-    
-    background: linear-gradient(115deg, #030313, #043539);
-    
-    min-height: 50vh;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
 }
-
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
+iframe{
+    width: 50%;
+    height: auto;
+}
+main>div:nth-child(1)>div>div{
+    width: 30%;
+    border: 1px solid black;
+}
+main>div:nth-child(2){
+    width: 100%;
+    height: auto;
+    padding-top: 5vh;
+    background-color: #f1efef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main>div:nth-child(2)>div{
+    width: 90%;
+    height: auto;
+    margin-bottom: 3vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+main>div:nth-child(2)>button{
+    width: 200px;
+    height: 40px;
+    background-color: #2B95CA;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 2px;
+}
+.reviewDiv{
+    width: 27%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 70% 15% 15%;
+}
+.reviewDiv>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reviewDiv>div:nth-child(1){
+    border-radius: 50%;
+    margin-top: 2vh;
+    height: 16vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reviewDiv>div:nth-child(1)>img{
+    width: 105%;
+}
+.reviewDiv>div:nth-child(2){
+    padding-left: 1vw;
+    line-height: 4vh;
+    font-size: 1.3rem;
+    font-style: italic;
+}
+.reviewDiv>div:nth-child(4){
+    justify-content: flex-start;
+}
+.reviewDiv>div:nth-child(6){
+    justify-content: flex-start;
+    color: #2B95CA;
+}
+main>div:nth-child(3){
+    width: 100%;
+    background-image: linear-gradient(rgb(241, 239, 239), rgb(244, 243, 243), rgb(248, 247, 247), rgb(251, 251, 251), rgb(255, 255, 255));
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.monetiseDiv{
+    background-color: white;
+    width: 80%;
+    display: flex;
+}
+.monetiseDiv>div:nth-child(1){
+    width: 40%;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+}
+.monetiseDiv>div:nth-child(2){
+    width: 60%;
+    background-image: url(https://www.homestay.com/assets/promotions/orange_bed-96c5597c1f1b641729a5523b543fbf44b6508237ef81816347f5b10dc95c4485.jpg);
+    background-size: cover;
+    background-position: 0% 78%;
+}
+.monetiseDiv>div>p:nth-child(1){
+    font-size: 1.7rem;
+    margin-bottom: 2vh;
+}
+.monetiseDiv>div>p:nth-child(2){
+    font-size: 1.2rem;
+    margin-bottom: 3vh;
+}
+.monetiseDiv>div>button{
+    width: 250px;
+    border-radius: 2px;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #2B95CA;
+    border: none;
+    align-self: center;
+}
+main>div:nth-child(4){
+    width: 100%;
+    height: auto;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    background-color: white;
+    margin-bottom: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.benefitDiv{
+    width: 80%;
+    display: flex;
+}
+.benefitDiv>div{
+    width: 33%;
+    display: flex;
+}
+.benefitDiv>div>div:nth-child(1){
+    width: 30%;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    padding-top: 1vh;
+    padding-right: 1vw;
+}
+.benefitDiv>div>div:nth-child(2){
+    width: 70%;
+    color: #512b1a;
+    padding-left: 5px;
+}
+.benefitDiv>div>div>h5{
+    font-size: 1.5rem;
+    font-weight: 370;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+.circleIcon{
+    width: 60%;
+    background-color: #CA005D;
+    aspect-ratio: 1;
+    border-radius: 50%;   
+}
+main>div:nth-child(5){
+    width: 100%;
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main>div:nth-child(5)>h1{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 350;
+    margin-bottom: 5vh;
+    color: #512b1a;
+}
+main>div:nth-child(5)>p{
+    text-align: center;
+    width: 60%;
+    margin-bottom: 5vh;
+}
+.cellContainer{
+    width: 70%;
+    height: 50vh;
+    display: flex;
+    gap: 15px;
+}
+.cells{
+    width: 33%;
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0 2px 5px #B7B1AE;
+    color: white;
+    font-weight: 350;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.cells:hover{
+    cursor: pointer;
+}
+.cells>div{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 40%;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: -20%;
+    transition: transform 0.3s ease-in-out;
+}
+.cells>div>div{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 1vw;
+}
+.cells>div>div>p{
+    font-size: 0.9rem;
+}
+.cells>div>div:last-child{
+    width: 90%;
+    height: 6vh;
+    font-size: 1rem;
+    border-radius: 3px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    background-color: #92c01f;
+}
+.cells:hover > div {
+    transform: translateY(-45%);
+}
+main>div:nth-child(6){
+    width: 100%;
+    margin-top: 2vh;
+    padding-top: 5vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main>div:nth-child(6)>h1{
+    font-size: 3rem;
+    color: #512b1a;
+    margin-bottom: 7vh;
+    font-weight: 350;
+}
+main>div:nth-child(6)>.cellContainer{
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    row-gap: 6vh;
+    column-gap: 5vh;
+    margin-bottom: 4vh;
+    flex-wrap: wrap;
+}
+main>div:nth-child(6)>.cellContainer>.cells{
+    width: 30%;
+    height: 50vh;
+}
+footer{
+    width: 100%;
+    height: auto;
+    margin-bottom: 1vh;
+}
+footer>div{
+    width: 100%;
+    padding-right: 20vw;
+    padding-top: 8vh;
+    padding-bottom: 4vh;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #6D635F;
+}
+footer>div:nth-child(1)>ul{
+    list-style: none;
+    color: white;
+    line-height: 4vh;
+}
+footer>div:nth-child(1)>ul>li:nth-child(1){
+    color: lightgray;
+    margin-bottom: 2vh;
+}
+@media (max-width: 1024px){
+    header>div>img{
+        width: 50%;
+        padding: 1vw;
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
+    header{
+        height: auto;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.15);
+        background-color: white;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .hero form{
+        width: 75%;
+        flex-wrap: wrap;
+    }
+    nav {
+        display: none;
+    }
+    .mobileNav{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        background-color: white;
+        height: auto;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+    .mobileNav.open {
+        padding-top: 2vh;
+        max-height: 350px;
+    }
+    .mobileNav>a{
+        height: 4vh;
+        text-decoration: none;
+        color: #512B1A;
+        line-height: 4vh;
+        border-top: 1px solid gray;
+    }
+    .stickySection{
+        display: none;
+        font-size: 0.7rem;
+    }
+    main>div:nth-child(1)>p{
+        display: none;
+    }
+    main>div:nth-child(1)>div{
+        width: 100%;
+    }
+    main>div:nth-child(1)>div>div{
+        display: none;
+    }
+    .hero form>input{
+        margin-bottom: 1vh;
+        width: 49%;
+    }
+    .hero form>select:nth-child(1){
+        width: 100%;
+    }
+    .hero form>select{
+        margin-bottom: 1vh;
+        width: 100%;
+    }
+    .hero form>button{
+        width: 100%;
+    }
+    iframe{
+        width: 100%;
+    }
+    main>div:nth-child(2)>div{
+        flex-direction: column;
+    }
+    .reviewDiv{
+        width: 90%;
+        padding-bottom: 2vh;
+    }
+    main>div:nth-child(3){
+        padding-top: 4vh;
+        padding-bottom: 4vh;
+        background-image: none;
+        background-color: #f1efef;
+    }
+    .monetiseDiv{
+        flex-direction: column-reverse;
+    }
+    .monetiseDiv>div:nth-child(1){
+        width: 100%;
+    }
+    .monetiseDiv>div:nth-child(2){
+        width: 100%;
+        height: 20vh;
+    }
+    .monetiseDiv>div>p:nth-child(1){
+        font-size: 1.4rem;
+        margin-bottom: 2vh;
+    }
+    .monetiseDiv>div>p:nth-child(2){
+        font-size: 1rem;
+        margin-bottom: 3vh;
+    }
+    .monetiseDiv>div>button{
+        width: 250px;
+        border-radius: 2px;
+        padding: 10px;
+        font-size: 1rem;
+        color: white;
+        background-color: #2B95CA;
+        border: none;
+        margin-bottom: 2vh;
+        align-self: center;
+    }
+    main>div:nth-child(1)>h1{
+        font-size: 2rem;
+    }
+    main>div:nth-child(4){
+        padding-bottom: 0vh
+    }
+    .benefitDiv{
+        width: 100%;
+        flex-direction: column;
+    }
+    .benefitDiv>div{
+        width: 90%;
+        display: flex;
+        margin-bottom: 5vh;
+    }
+    .benefitDiv>div:last-child{
+        margin-bottom: 0vh;
+    }
+    main>div:nth-child(5)>p{
+        width: 90%;
+    }
+    .cellContainer{
+        height: auto;
+        flex-direction: column;
+    }
+    .cells{
+        width: 100%;
+        height: 40vh;
+    }
+    .cells>div>div:last-child{
+        height: 5vh;
+    }
+    .cells:hover > div {
+        transform: translateY(-40%);
+    }
+    main>div:nth-child(6)>.cellContainer{
+        align-items: center;        
+    }
+    main>div:nth-child(6)>.cellContainer>.cells{
+        width: 90%;
+    }
+    footer>div{
+        padding-right: 0vh;
+    }
+    footer>div:nth-child(1)>ul{
+        margin-right: 2vh;
+        margin-bottom: 4vh;
+    }
+    footer>div:nth-child(1)>ul:nth-child(3){
+        margin-right: 37vh;
+        margin-left: 8vh;
     }
 }
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
+@media (max-width: 500px){
+    header>div>img{
+        width: 70%;
     }
-    100% {
-        opacity: 0;
-        transform: translateY(20px);
+    main>div:nth-child(1)>div{
+        height: auto;
+    }
+    .reviewDiv>div:nth-child(2){
+        font-size: 1rem;
+        line-height: 3vh;
+    }
+    .hero{
+        height: 70vh;
+    }
+    .hero h1{
+        width: 95%;
+        font-size: 1.5rem;
+    }
+    .hero form{
+        width: 95%;
+    }
+    .reviewDiv>div:nth-child(1){
+        height: 90%;
+    }
+    .cells{
+        height: 30vh;
+    }
+    .cells:hover > div {
+        transform: translateY(-47%);
+    }
+    main>div:nth-child(6)>.cellContainer>.cells{
+        height: 30vh;
+    }
+    main>div:nth-child(5)>h1{
+        font-size: 2rem;
+    }
+    main>div:nth-child(6)>h1{
+        font-size: 2rem;
+    }
+    footer>div:nth-child(1)>ul:nth-child(3){
+        margin-right: 20vh;
+        margin-left: 0vh;
     }
 }
